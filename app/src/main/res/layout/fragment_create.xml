@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.gogame.mycontacts.ui.contact.create.CreateContactViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.auth.SignupActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/user_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/user_image"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Contact Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:text="@={viewmodel.name}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Contact Number">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:text="@={viewmodel.phone}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Email Address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:text="@={viewmodel.email}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_group_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/cardview_shadow_start_color"
+                    android:onClick="@{viewmodel.onNavigateGroup}"
+                    android:textColor="@color/white"
+                    android:text="Add Group"/>
+
+
+                <CheckBox
+                    android:id="@+id/chk_multioption_ezymoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:button="@drawable/fav_check_selector"
+                    android:textSize="16sp"
+                    android:onCheckedChanged="@{(compoundButton, checked) -> viewmodel.onCheckedChange(compoundButton, checked)}"
+                    android:paddingLeft="5dp"
+                    android:text="Add Favourite"
+                    android:visibility="visible" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/teal_700"
+                    android:onClick="@{viewmodel.onCreateContact}"
+                    android:textColor="@color/white"
+                    android:text="Add Contact"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:visibility="invisible" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+
+
+
+
