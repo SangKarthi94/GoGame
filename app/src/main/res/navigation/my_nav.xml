@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/contactListFragment">
+
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="com.gogame.mycontacts.ui.contact.contactlist.ContactListFragment"
+        android:label="Contacts"
+        tools:layout="@layout/contact_list_fragment" >
+        <action
+            android:id="@+id/action_contactListFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_contactListFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_contactListFragment_to_groupListFragment"
+            app:destination="@id/groupListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.gogame.mycontacts.ui.contact.contactUpdate.UpdateFragment"
+        android:label="Update Contact"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.gogame.mycontacts.ui.contact.create.CreateFragment"
+        android:label="Create Contact"
+        tools:layout="@layout/fragment_create" >
+        <action
+            android:id="@+id/action_createFragment_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+        <action
+            android:id="@+id/action_createFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.gogame.mycontacts.ui.contact.creategroup.GroupFragment"
+        android:label="Groups"
+        tools:layout="@layout/group_fragment" >
+        <action
+            android:id="@+id/action_groupFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupListFragment"
+        android:name="com.gogame.mycontacts.ui.contact.creategroup.grouplist.GroupListFragment"
+        android:label="Group List"
+        tools:layout="@layout/fragment_group_list" >
+        <action
+            android:id="@+id/action_groupListFragment_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+        <action
+            android:id="@+id/action_groupListFragment_to_groupUserListFragment"
+            app:destination="@id/groupUserListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupUserListFragment"
+        android:name="com.gogame.mycontacts.ui.contact.creategroup.grouplist.GroupUserListFragment"
+        android:label="Group Contact List"
+        tools:layout="@layout/fragment_group_user_list" >
+        <action
+            android:id="@+id/action_groupUserListFragment_to_groupListFragment"
+            app:destination="@id/groupListFragment" />
+    </fragment>
+</navigation>
